@@ -1,4 +1,4 @@
-dmd-yaml
-========
+signed-tar
+==========
 
-NPM module for preprocessing DMD-YAML.
+NPM module for preprocessing signed tar files.
