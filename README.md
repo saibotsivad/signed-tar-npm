@@ -1,4 +1,4 @@
-# signed tar
+# Signed tar
 
 This document describes a method for producing cryptographically
 signed [tar](https://en.wikipedia.org/wiki/Tar_%28computing%29) files.
@@ -6,7 +6,7 @@ signed [tar](https://en.wikipedia.org/wiki/Tar_%28computing%29) files.
 The file extension used is `stf`. This can also be combined with `gzip`,
 e.g. `package.stf.gz`.
 
-## basic setup
+## Basic setup
 
 Any **files** can be placed inside a tar archive. This excludes
 symlinks and other shenanigans. Just plain files.
@@ -16,7 +16,7 @@ There are two reserved filenames inside the tar:
 * `_manifest`
 * `_manifest.sig`
 
-## tar manifest: `_manifest`
+## Tar manifest: `_manifest`
 
 The `_manifest` is a plain-text ASCII file, listing the *SHA-256*
 hashes of the files and the hash of the key used to sign the manifest.
@@ -34,8 +34,8 @@ The property `key` is the *SHA-256* of the public key used to sign
 the manifest.
 
 Following this is a list of *all* files inside the tar archive,
-except the two manifest files. The property is the *SHA-256* hash
-of the *file*, and the value is the file name.
+except the two manifest files. The "property" is the *SHA-256* hash
+of the *file*, and the "value" is the file name.
 
 File naming restrictions:
 
@@ -53,7 +53,7 @@ look something like this:
       folder path/
         file.ext
 
-## manifest signature: `_manifest.sig`
+## Manifest signature: `_manifest.sig`
 
 The `_manifest.sig` is a binary signature file. The signature is generated
 by taking the *SHA-256* of the `_manifest` file and signing the *hash*
@@ -66,7 +66,7 @@ In the above example `_manifest` file, the *SHA-256* hash would be:
 This hash is signed, and the signature and stored in binary format as
 the `_manifest.sig` file.
 
-## a complete example
+## A complete example
 
 The files used in this example are found in the [example](./example/)
 folder. The files named `file.ext` are simply random bytes
@@ -126,3 +126,18 @@ This folder is packaged together as a tar archive, with the
 appropriate file extension:
 
 	tar -cvf package.stf package
+
+# License
+
+The `signed-tar` specifications, all example files, all code files,
+and all documentation, is released under the [VOL](http://veryopenlicense.com/).
+
+	Very Open License (VOL)
+
+	The contributor(s) to this creative work voluntarily grant permission
+	to any individual(s) or entities of any kind
+	- to use the creative work in any manner,
+	- to modify the creative work without restriction,
+	- to sell the creative work or derivatives thereof for profit, and
+	- to release modifications of the creative work in part or whole under any license
+	with no requirement for compensation or recognition of any kind.
