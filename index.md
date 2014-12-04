@@ -28,10 +28,12 @@ hashes of the files and the hash of the key used to sign the manifest.
 
 An example `_manifest` file might look like:
 
-	[manifest]
-	key=7a5179eecc0fe18760ba615f92603372ae3fe302860098a019e15927551fee3b
-	84784533571ed086a3cdff9fd41f89b43863a7314660442616fd02ee51a9608b=file.ext
-	3de4c18609d8069edf84538a0b4d27140565b72f894c35701a3a737353cb5fe3=folder path/file.ext
+```
+[manifest]
+key=7a5179eecc0fe18760ba615f92603372ae3fe302860098a019e15927551fee3b
+84784533571ed086a3cdff9fd41f89b43863a7314660442616fd02ee51a9608b=file.ext
+3de4c18609d8069edf84538a0b4d27140565b72f894c35701a3a737353cb5fe3=folder path/file.ext
+```
 
 The file starts with the header `[manifest]`.
 
@@ -51,12 +53,14 @@ File naming restrictions:
 The file structure inside the tar archive for the above manifest would
 look something like this:
 
-    package.tar/
-      _manifest
-      _manifest.sig
-      file.ext
-      folder path/
-        file.ext
+```
+package.tar/
+  _manifest
+  _manifest.sig
+  file.ext
+  folder path/
+    file.ext
+```
 
 ## Manifest signature: `_manifest.sig`
 
@@ -66,7 +70,9 @@ with an [OpenPGP](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) key.
 
 In the above example `_manifest` file, the *SHA-256* hash would be:
 
-	3656ad41d1c95306d324c827faf88bce354a4f27c0ba220c60cd10baa4ec8e99
+```
+3656ad41d1c95306d324c827faf88bce354a4f27c0ba220c60cd10baa4ec8e99
+```
 
 This hash is signed, and the signature and stored in binary format as
 the `_manifest.sig` file.
@@ -82,7 +88,9 @@ First start by generating an OpenPGP key. In this example we use [GPG](https://w
 
 Create a new key:
 
-	gpg --gen-key
+```
+gpg --gen-key
+```
 
 Select the option `RSA and RSA`, and then select a bit size
 of **at least** `2048 bits`.
@@ -92,11 +100,15 @@ will select `0 = key does not expire`.
 
 For this example we use the name:
 
-	"John Doe (Example user) <john.doe@email.com>"
+```
+"John Doe (Example user) <john.doe@email.com>"
+```
 
 And the password:
 
-	abc.123.my.super.secret.password
+```
+abc.123.my.super.secret.password
+```
 
 In order for you to follow this demo and verify the outputs, the keys
 generated for this example were exported to the [example](./example/)
@@ -104,50 +116,62 @@ folder using the following commands:
 
 Public key:
 
-	gpg --armor --export john.doe@email.com
+```
+gpg --armor --export john.doe@email.com
+```
 
 Private key:
 
-	gpg --armor --output demo_key.asc --export-secret-keys John
+```
+gpg --armor --output demo_key.asc --export-secret-keys John
+```
 
 Using GPG and generating a "detached" signature is equivalent
 to generating the file hash and signing it. Therefore, signing
 the `_manifest` file is done:
 
-	gpg --detach-sign _manifest
+```
+gpg --detach-sign _manifest
+```
 
 GPG automatically generates the signature file named `_manifest.sig`.
 
 Together these files are placed inside the folder such that
 the folder looks like:
 
-    package/
-      _manifest
-      _manifest.sig
-      file.ext
-      folder path/
-        file.ext
+```
+package/
+  _manifest
+  _manifest.sig
+  file.ext
+  folder path/
+    file.ext
+```
 
 This folder is packaged together as a tar archive, with the
 appropriate file extension:
 
-	tar -cvf package.stf package
+```
+tar -cvf package.stf package
+```
 
 Or alternately, as a tar+gzip file:
 
-	tar -zcvf package.stf.gz package
+```
+tar -zcvf package.stf.gz package
+```
 
 # License
 
 The `signed-tar` specifications, all example files, all code files,
 and all documentation, is released under the [VOL](http://veryopenlicense.com/).
 
-	Very Open License (VOL)
-
-	The contributor(s) to this creative work voluntarily grant permission
-	to any individual(s) or entities of any kind
-	- to use the creative work in any manner,
-	- to modify the creative work without restriction,
-	- to sell the creative work or derivatives thereof for profit, and
-	- to release modifications of the creative work in part or whole under any license
-	with no requirement for compensation or recognition of any kind.
+> Very Open License (VOL)
+>
+> The contributor(s) to this creative work voluntarily grant permission
+> to any individual(s) or entities of any kind
+> - to use the creative work in any manner,
+> - to modify the creative work without restriction,
+> - to sell the creative work or derivatives thereof for profit, and
+> - to release modifications of the creative work in part or whole under any license
+> with no requirement for compensation or recognition of any kind.
