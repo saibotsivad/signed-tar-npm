@@ -127,6 +127,10 @@ appropriate file extension:
 
 	tar -cvf package.stf package
 
+Or alternately, as a tar+gzip file:
+
+	tar -zcvf package.stf.gz package
+
 # License
 
 The `signed-tar` specifications, all example files, all code files,
