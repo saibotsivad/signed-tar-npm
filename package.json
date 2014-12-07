@@ -1,0 +1,27 @@
+{
+  "name": "signed-tar",
+  "version": "0.0.0",
+  "description": "Generate, verify, and unpackage signed tar archives.",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sdmp/signed-tar.git"
+  },
+  "keywords": [
+    "sdmp",
+    "tar",
+    "gpg",
+    "pgp"
+  ],
+  "author": "saibotsivad",
+  "license": "VOL",
+  "bugs": {
+    "url": "https://github.com/sdmp/signed-tar/issues"
+  }
+}
