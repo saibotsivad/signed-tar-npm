@@ -1,27 +1,35 @@
 {
   "name": "signed-tar",
-  "version": "0.0.0",
-  "description": "Generate, verify, and unpackage signed tar archives.",
-  "main": "index.js",
-  "directories": {
-    "example": "example"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "./lib/signed-tar.js",
+  "description": "Package, verify, and unpackage signed tar archives.",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/sdmp/signed-tar.git"
   },
-  "keywords": [
-    "sdmp",
-    "tar",
-    "gpg",
-    "pgp"
-  ],
-  "author": "saibotsivad",
+  "keywords": [ "sdmp", "tar", "gpg", "pgp" ],
+  "author": {
+    "name": "saibotsivad",
+    "url": "http://tobiaslabs.com"
+  },
   "license": "VOL",
   "bugs": {
     "url": "https://github.com/sdmp/signed-tar/issues"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "tap ./test/test*.js"
+  },
+  "devDependencies": {
+    "tap": "~0.4.4"
+  },
+  "dependencies": {
+    "tar": ">1.0.0",
+    "fstream": ">1.0.0",
+    "path": ">0.4.0",
+    "q": ">1.1.0",
+    "recursive-readdir": ">1.2.0"
   }
 }
