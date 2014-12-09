@@ -2,6 +2,7 @@
   "name": "signed-tar",
   "main": "./lib/signed-tar.js",
   "description": "Package, verify, and unpackage signed tar archives.",
+  "homepage": "http://sdmp.github.io/signed-tar/",
   "version": "0.1.0",
   "repository": {
     "type": "git",
