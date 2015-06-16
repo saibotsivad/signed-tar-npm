@@ -1,7 +1,7 @@
 # Signed tar
 
 This is a node module implementation of the
-[signed tar specifications](http://sdmp.github.io/signed-tar/).
+[signed tar specifications](https://github.com/sdmp/signed-tar).
 
 ## Install
 
