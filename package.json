@@ -2,12 +2,17 @@
   "name": "signed-tar",
   "main": "./lib/signed-tar.js",
   "description": "Package, verify, and unpackage signed tar archives.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/saibotsivad/signed-tar.git"
   },
-  "keywords": [ "sdmp", "tar", "gpg", "pgp" ],
+  "keywords": [
+    "sdmp",
+    "tar",
+    "gpg",
+    "pgp"
+  ],
   "author": {
     "name": "saibotsivad",
     "url": "http://tobiaslabs.com"
