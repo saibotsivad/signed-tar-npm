@@ -7,7 +7,9 @@ This is a node module implementation of the
 
 The normal way:
 
-	npm install signed-tar
+```sh
+npm install signed-tar
+```
 
 ## Requirements
 
@@ -18,14 +20,16 @@ the `PATH`. (Comes pre-installed on Mac.)
 
 Inside some module, use it like:
 
-	var sigtar = require('signed-tar')
-	var options = {
-		user: '<john.doe@email.com>',
-		dir: './test/package'
-	}
-	sigtar(options, function(err) {
-		console.log('done signing and tarring')
-	})
+```js
+var sigtar = require('signed-tar')
+var options = {
+	user: '<john.doe@email.com>',
+	dir: './test/package'
+}
+sigtar(options, function(err) {
+	console.log('done signing and tarring')
+})
+```
 
 ## options.user
 
