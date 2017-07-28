@@ -1,5 +1,7 @@
 # Signed tar
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/saibotsivad/signed-tar-npm.svg)](https://greenkeeper.io/)
+
 This is a node module implementation of the
 [signed tar specifications](https://github.com/sdmp/signed-tar).
 
